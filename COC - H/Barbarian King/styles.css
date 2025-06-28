@@ -1,0 +1,647 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  width: 100%; /* Ensure content stays within the viewport */
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background-image: url('backg.jpeg'); /* Replace with your image file name */
+    background-size: cover; /* Ensures the image covers the entire screen */
+    background-position: top; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling */
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 70px;
+}
+
+@media (max-width: 480px) {
+  body {
+      gap: 15px; /* Reduce the gap between elements for smaller screens */
+      padding: 10px; /* Reduce overall padding */
+      padding-top: 50px; /* Adjust top padding for better spacing */
+      background-size: auto; /* Adjust background size to fit smaller screens */
+  }
+}
+
+.rock-text {
+    font-family: 'Press Start 2P', sans-serif; /* Use a generic font */
+    font-weight: bold;
+    font-size: 64px; /* Adjust size as needed */
+    text-shadow: 
+        -2px -2px 4px green,  /* Light shadow for top-left */
+        2px 2px 4px green;    /* Dark shadow for bottom-right */
+    letter-spacing: 2px;      /* Spacing to give rugged appearance */
+    text-transform: uppercase; /* Make text uppercase */
+    margin: 20px auto;
+    display: inline-block;
+}
+
+#troops h2 {
+    color:black;
+  }
+  #features h2 {
+    color:black;
+  }
+  /* Typography */
+  h1, h2, h3, p, button {
+    font-family: 'Press Start 2P', cursive;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  p, button { font-size: 1rem; }
+/* Navbar Styling */
+.navbar {
+  box-sizing: border-box;
+  width: 100%; /* Ensure it spans the full width */  
+  position: fixed; /* Fix the navbar to the top of the viewport */
+  top: 0; /* Align it to the very top */
+  left: 0; /* Align it to the left edge */
+  display: flex;
+  justify-content: space-between; /* Logo on the left, links on the right */
+  align-items: center; /* Vertically center the logo and links */
+  background-color: #1e1e1e; /* Background color for visibility */
+  padding: 10px 20px; /* Adjust padding as needed */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Logo Styling */
+.navbar .logo img {
+  max-width: 600px; /* Adjust logo size */
+  max-height: 100px;
+  object-fit: contain;
+}
+
+/* Navigation Links Container */
+.nav-links-wrapper {
+  display: flex; /* Keeps both lists side by side */
+  flex-direction: column; /* Stacks the lists vertically */
+  align-items: flex-end; /* Aligns lists to the right */
+  gap: 10px; /* Adds space between the two lists */
+}
+
+/* Navigation Links Styling */
+.nav-links {
+  list-style: none;
+  display: flex; /* Align links horizontally */
+  gap: 30px; /* Space between links */
+  margin: 10px;
+  padding: 0px;
+  margin-left: 470px;
+}
+
+.nav-links li a {
+  color: #ffcc00;
+  text-shadow: -2px -2px 3px darkgreen,2px 2px 3px darkblue;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ff5722;
+}
+
+/* Dropdown Menu Styling */
+.nav-links li {
+  position: relative; /* To position the dropdown menu */
+}
+
+.nav-links li ul {
+  display: none; /* Hide dropdown menu initially */
+  position: absolute;
+  top: 100%; /* Position below the parent link */
+  left: 0;
+  background-color: #1e1e1e;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.nav-links li ul li {
+  padding: 10px 20px; /* Adjust padding for more spacing */
+  margin-bottom: 5px; /* Add margin between items */
+}
+
+.nav-links li ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links li ul li a:hover {
+  color: #ff5722;
+}
+
+.nav-links li:hover ul {
+  display: block; /* Show the dropdown menu on hover */
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger-menu {
+  display: none; /* Initially hidden */
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 12%;
+  }
+  /* Hamburger Menu */
+  .hamburger-menu {
+    display: flex; /* Show hamburger menu */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  /* Hide nav links on mobile */
+  .nav-links-wrapper {
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjust to the correct height */
+    right: 0; /* Align to the right side */
+    background-color: #1e1e1e;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+    width: auto; /* Don't take full width */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 999;
+  }
+
+  /* Show nav links when 'active' class is toggled */
+  .nav-links-wrapper.active {
+    display: flex;
+  }
+
+  /* Stack nav items vertically and align to the right */
+  .nav-links {
+    flex-direction: column;
+    gap: 15px;
+    width: auto; /* Allow it to adjust based on content */
+    align-items: flex-end; /* Align links to the right */
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .nav-links li {
+    width: 100%; /* Ensure the links take up the full width of the container */
+    text-align: right; /* Align text to the right */
+  }
+
+  .nav-links li a {
+    padding: 10px;
+    font-size: 1.1rem;
+  }
+
+  /* Dropdown menus on mobile */
+  .nav-links li ul {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position dropdown menu just below the parent link */
+    right: 0; /* Align dropdown to the right of the parent link */
+  }
+
+  .nav-links li:hover ul {
+    display: block;
+  }
+
+  /* Ensure navbar items do not overflow horizontally */
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+}
+
+
+/* Content Styles */
+.content {
+    position: relative;
+    z-index: 1; /* Ensures content appears above the background video */
+    padding: 20px;
+    color: white;
+}
+
+.card-container {
+  margin-top: 70px;
+}
+
+.character-cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin-left:50px;
+  margin-top:50px;
+  background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-right: 70px;
+  gap: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: white; /* Ensures text is readable */
+}
+
+@media (max-width: 768px) {
+  .character-cards {
+      flex-direction: column; /* Stack items vertically */
+      padding: 15px; /* Reduce padding */
+      gap: 10px; /* Reduce gap between elements */
+      width: 95%; /* Adjust width to fit smaller screens */
+      margin: 10px auto; /* Adjust margin */
+  }
+}
+
+/* Card Container */
+.character-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-left:50px;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    gap: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    color: white; /* Ensures text is readable */
+}
+
+@media (max-width: 768px) {
+  .character-card {
+      flex-direction: column; /* Stack items vertically */
+      padding: 15px; /* Reduce padding */
+      gap: 10px; /* Reduce gap between elements */
+      width: 95%; /* Adjust width to fit smaller screens */
+      margin: 10px auto; /* Adjust margin */
+  }
+}
+
+.character-card:hover {
+    transform: scale(1.02);
+    background: rgba(0, 0, 0, 0.7); /* Slightly less transparent on hover */
+}
+
+/* Animation Section */
+.character-animation {
+    flex: 1;
+    text-align: center;
+    
+}
+
+.character-image {
+    width: 150px;
+    animation: bounce 2s infinite;
+}
+
+/* Description Section */
+.character-description {
+    flex: 2;
+    text-align: center;
+    color: #FDD15B;
+}
+
+.character-description h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffc527;
+}
+
+.character-description p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.character-descriptions p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.character-descriptions {
+  flex: 2;
+  text-align: center;
+  color: #FDD15B;
+}
+
+/* Video Section */
+
+.character-g {
+    width: 150px;
+    height: auto;
+    object-fit: cover;
+    margin-left:60px;
+}
+
+
+.character-gif {
+    flex: 1;
+    position: relative;
+}
+
+.character-video video {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .character-card {
+      display: flex;
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+      width: 100%; /* Ensure full-width on small screens */
+  }
+
+  .character-image, .character-g {
+      width: 120px; /* Resize images for smaller screens */
+  }
+
+  .character-description h2 {
+      font-size: 20px; /* Smaller heading font size */
+  }
+
+  .character-description p {
+      font-size: 14px; /* Adjust paragraph font size for readability */
+  }
+
+  .character-g {
+      margin-left: 0; /* Remove left margin on small screens */
+  }
+}
+
+/* Very small devices (e.g., smartphones) */
+@media (max-width: 480px) {
+  .character-image, .character-g {
+      width: 100px; /* Further reduce image sizes */
+  }
+
+  .character-description h2 {
+      font-size: 18px; /* Adjust heading size even further */
+  }
+
+  .character-description p {
+      font-size: 12px; /* Reduce paragraph font size */
+  }
+
+  .character-card {
+      padding: 10px; /* Add some padding on small screens */
+  }
+
+  .character-animation {
+      text-align: center; /* Ensure content remains centered */
+  }
+}
+
+/* Keyframe Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-7px);
+    }
+}
+
+.body {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  margin: 0; /* Reset default margin */
+}
+
+.container {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  gap: 20px; 
+  padding: 20px;
+  padding-right:80px;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+
+.section-box {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+  color: #FDD15B;
+  text-shadow: 
+        -2px -2px 4px green,  /* Light shadow for top-left */
+        2px 2px 4px green;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.swiper {
+  width: 80%;
+  height: calc(100% - 60px);
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  border-radius: 10px;
+  padding: 10px;
+  height: 100%;
+}
+
+.swiper-slide img {
+  height:300px;
+  width:500px;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.swiper-slide p {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+/* General styles */
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-item {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+
+.slider-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the area without distortion */
+  border-radius: 10px; /* Optional: Adds rounded corners */
+  object-position: center;
+}
+
+/* Navigation buttons */
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider-button-prev {
+  left: 10px;
+}
+
+.slider-button-next {
+  right: 10px;
+}
+
+.slider-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+/* Media query for mobile responsiveness */
+@media (max-width: 768px) {
+  .body {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .section-box {
+    width: 100%;
+    max-width: 90%; /* Keep the section within the viewport */
+    height: auto;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px; /* Adjust font size for readability */
+    margin-bottom: 15px;
+    text-align: center; /* Center align the heading */
+}
+
+.swiper {
+    /* Make the swiper take full width of the section */
+    max-width: 350px; /* Limit the maximum width */
+    height: auto;
+    margin: 0 auto; /* Center the swiper */
+}
+
+
+
+.swiper-slide {
+    width: auto; /* Allow the slide to resize dynamically */
+    flex: 0 0 auto; /* Prevent flex shrinking */
+    text-align: center; /* Center align content within the slide */
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.swiper-slide img {
+    width: 100%; /* Make the image responsive */
+    max-width: 200px; /* Limit the maximum width of the image */
+    height: auto;
+    border-radius: 8px; /* Optional: Add rounded corners to the image */
+
+    margin: 0 auto; /* Center the image */
+}
+
+.swiper-slide p {
+    font-size: 14px; /* Adjust font size for better readability */
+    margin-top: 10px;
+    color: #fff; /* Ensure the text color contrasts with the background */
+}
+
+
+  .slider-container {
+    height: auto;
+  }
+
+  .slider-item img {
+    height: auto;
+  }
+
+  .slider-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
