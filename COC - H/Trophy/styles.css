@@ -1,0 +1,166 @@
+/* General Reset */
+body {
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: url('allbg2.jpg');
+  background-size: cover; /* Ensures the image covers the screen */
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  position: relative; /* Ensure the pseudo-element is positioned relative to the body */
+}
+
+@media (max-width: 480px) {
+  body {
+    background-size: 100% 100%; /* Adjusts image height to fit smaller screens */
+    background-attachment: fixed; /* Prevent fixed background lag on mobile */
+  }
+}
+
+.heading {
+  text-align:center;
+  color:darkred;
+  text-shadow: 
+      -2px -2px 3px whitesmoke,
+      2px 2px 3px whitesmoke;
+}
+
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width:10400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: calc(450px * 23); /* Width for 10 cards, adjust for your card width */
+}
+
+/* Card Styling */
+.card {
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #18c408; /* Gold border to match Clash of Clans theme */
+  border-radius: 10px;
+  background: linear-gradient(145deg, #99f3cb, #91e689, #F7CDC9, #F5E6E8); /* Gradient shades of light and dark blue */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+  margin: 5px;
+  height: 590px; /* Vertically long card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card Image Section */
+.card-image {
+  margin-top:-9px;
+  margin-bottom: 5px;
+}
+
+.card-image img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Card Text Section */
+.card-text {
+  padding: 15px;
+  height:400px;
+  background:linear-gradient(145deg, #78c57b, #56d660, #46bb4a, #D96464); /* Gradient shades for text section */
+  border-radius: 8px;
+  color:  #f8f8ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Press Start 2P', cursive; /* Clash of Clans theme font */
+}
+
+/* Styling for each Stat Row */
+.stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0; /* Space between rows */
+  font-size: 0.7rem;
+  line-height: 24px;
+}
+
+/* Styling for Labels */
+.stat .label {
+  text-align: left;
+  flex: 1; /* Push label to the left */
+  color:#026d02; /* Gold color for labels */
+  margin-bottom: 3px;
+}
+
+/* Styling for Values */
+.stat .value {
+  text-align: right;
+  flex: 1; /* Push value to the right */
+  color: #610f00; /* White color for values */
+}
+
+
+.card-text h3 {
+  margin-top:-2px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 3px #000;
+}
+/* Slider Buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+.left-btn {
+  left: 10px;
+}
+
+.right-btn {
+  right: 10px;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 1);
+}
+
+@media (max-width: 480px) {
+
+  .slider-container {
+    overflow:scroll;
+    width:100%;
+    margin-left:10px;
+  }
+  /* Card styling for mobile */
+  .slider-container .slider .card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 350px;
+    padding: 15px;
+    box-sizing: border-box;
+    float:left;
+  }
+
+  /* Slider width adjustment */
+  .slider-container .slider {
+    display: flex;
+    width: max-content; /* Allow as wide as the content */
+  }
+}
